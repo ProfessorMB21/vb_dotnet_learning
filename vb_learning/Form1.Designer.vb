@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         btn_start = New Button()
         btnGo = New Button()
         btnVariables = New Button()
@@ -45,6 +46,17 @@ Partial Class Form1
         btnDoUntil = New Button()
         btnCondLoop = New Button()
         btnArrays = New Button()
+        btnLinSearch = New Button()
+        Label6 = New Label()
+        txtSearch = New TextBox()
+        btnMoreArrays = New Button()
+        ProgressBar1 = New ProgressBar()
+        btnStart = New Button()
+        btnClear = New Button()
+        btnStop = New Button()
+        txtTimerIncrement = New TextBox()
+        txtTimerInterval = New TextBox()
+        Timer1 = New Timer(components)
         SuspendLayout()
         ' 
         ' btn_start
@@ -247,11 +259,106 @@ Partial Class Form1
         btnArrays.Text = "Array Variables"
         btnArrays.UseVisualStyleBackColor = True
         ' 
+        ' btnLinSearch
+        ' 
+        btnLinSearch.Location = New Point(912, 162)
+        btnLinSearch.Name = "btnLinSearch"
+        btnLinSearch.Size = New Size(140, 50)
+        btnLinSearch.TabIndex = 23
+        btnLinSearch.Text = "Linear Search"
+        btnLinSearch.UseVisualStyleBackColor = True
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(813, 124)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(93, 15)
+        Label6.TabIndex = 25
+        Label6.Text = "Search for name"
+        ' 
+        ' txtSearch
+        ' 
+        txtSearch.Location = New Point(912, 121)
+        txtSearch.Name = "txtSearch"
+        txtSearch.Size = New Size(140, 23)
+        txtSearch.TabIndex = 24
+        ' 
+        ' btnMoreArrays
+        ' 
+        btnMoreArrays.Location = New Point(1122, 162)
+        btnMoreArrays.Name = "btnMoreArrays"
+        btnMoreArrays.Size = New Size(133, 50)
+        btnMoreArrays.TabIndex = 26
+        btnMoreArrays.Text = "2D Arrays"
+        btnMoreArrays.UseVisualStyleBackColor = True
+        ' 
+        ' ProgressBar1
+        ' 
+        ProgressBar1.Location = New Point(1119, 306)
+        ProgressBar1.Name = "ProgressBar1"
+        ProgressBar1.Size = New Size(203, 30)
+        ProgressBar1.TabIndex = 27
+        ' 
+        ' btnStart
+        ' 
+        btnStart.Location = New Point(1119, 356)
+        btnStart.Name = "btnStart"
+        btnStart.Size = New Size(79, 35)
+        btnStart.TabIndex = 28
+        btnStart.Text = "Start"
+        btnStart.UseVisualStyleBackColor = True
+        ' 
+        ' btnClear
+        ' 
+        btnClear.Location = New Point(1119, 438)
+        btnClear.Name = "btnClear"
+        btnClear.Size = New Size(79, 35)
+        btnClear.TabIndex = 29
+        btnClear.Text = "Clear"
+        btnClear.UseVisualStyleBackColor = True
+        ' 
+        ' btnStop
+        ' 
+        btnStop.Location = New Point(1119, 397)
+        btnStop.Name = "btnStop"
+        btnStop.Size = New Size(79, 35)
+        btnStop.TabIndex = 30
+        btnStop.Text = "Stop"
+        btnStop.UseVisualStyleBackColor = True
+        ' 
+        ' txtTimerIncrement
+        ' 
+        txtTimerIncrement.Location = New Point(1222, 368)
+        txtTimerIncrement.Name = "txtTimerIncrement"
+        txtTimerIncrement.Size = New Size(85, 23)
+        txtTimerIncrement.TabIndex = 31
+        ' 
+        ' txtTimerInterval
+        ' 
+        txtTimerInterval.Location = New Point(1222, 409)
+        txtTimerInterval.Name = "txtTimerInterval"
+        txtTimerInterval.Size = New Size(85, 23)
+        txtTimerInterval.TabIndex = 32
+        ' 
+        ' Timer1
+        ' 
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1125, 650)
+        ClientSize = New Size(1334, 668)
+        Controls.Add(txtTimerInterval)
+        Controls.Add(txtTimerIncrement)
+        Controls.Add(btnStop)
+        Controls.Add(btnClear)
+        Controls.Add(btnStart)
+        Controls.Add(ProgressBar1)
+        Controls.Add(btnMoreArrays)
+        Controls.Add(Label6)
+        Controls.Add(txtSearch)
+        Controls.Add(btnLinSearch)
         Controls.Add(btnArrays)
         Controls.Add(btnCondLoop)
         Controls.Add(btnDoUntil)
@@ -276,7 +383,7 @@ Partial Class Form1
         Controls.Add(btnGo)
         Controls.Add(btn_start)
         Name = "Form1"
-        Text = "Form1"
+        Text = "Visual Basic Learning"
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -304,5 +411,16 @@ Partial Class Form1
     Friend WithEvents btnDoUntil As Button
     Friend WithEvents btnCondLoop As Button
     Friend WithEvents btnArrays As Button
+    Friend WithEvents btnLinSearch As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents btnMoreArrays As Button
+    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents btnStart As Button
+    Friend WithEvents btnClear As Button
+    Friend WithEvents btnStop As Button
+    Friend WithEvents txtTimerIncrement As TextBox
+    Friend WithEvents txtTimerInterval As TextBox
+    Friend WithEvents Timer1 As Timer
 
 End Class

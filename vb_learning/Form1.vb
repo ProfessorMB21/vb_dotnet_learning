@@ -13,12 +13,12 @@
         Dim firstName As String
 
         iNumber = 107
-        firstName = "Bupe"
+        firstName = "John"
 
         MsgBox("hello " & firstName & " nice to meet you " & iNumber)
 
         iNumber = 5792
-        firstName = "clara"
+        firstName = "June"
 
         MessageBox.Show("hello " & firstName & " nice to meet you " & iNumber)
 
@@ -191,7 +191,7 @@
         Loop
 
         iMaxElements = CInt(sLen)
-        Dim asNames(iMaxElements) As String
+        Dim asNames(iMaxElements) As String     ' array declaration
 
         Do
             asNames(iCount) = InputBox("please enter user name")
@@ -206,5 +206,100 @@
             iCount += 1
         Loop
 
+        MsgBox("Using for next loop")
+        For iCount = 0 To iMaxElements
+            MsgBox("User " & iCount & vbTab & asNames(iCount))
+        Next
+
+    End Sub
+
+    Private Sub btnLinSearch_Click(sender As Object, e As EventArgs) Handles btnLinSearch.Click
+        Dim sTargetName As String
+        Dim asNames(9) As String
+        Dim bFound As Boolean
+
+
+        asNames(0) = "Bupe"
+        asNames(1) = "Clara"
+        asNames(2) = "Chola"
+        asNames(3) = "Rabecca"
+        asNames(4) = "Mildred"
+        asNames(5) = "Clementine"
+        asNames(6) = "Dolores"
+        asNames(7) = "Allison"
+        asNames(8) = "Vanya"
+        asNames(9) = "Jane"
+
+        sTargetName = txtSearch.Text
+
+        Dim i As Integer
+        For i = 0 To 9
+            If LCase(asNames(i)) = LCase(sTargetName) Then
+                bFound = True
+                Exit For
+            End If
+        Next
+
+        If Not bFound Then
+            MsgBox("Not found.")
+        Else
+            MsgBox("Found it.")
+        End If
+
+    End Sub
+
+    Private Sub btnMoreArrays_Click(sender As Object, e As EventArgs) Handles btnMoreArrays.Click
+        Dim asPeople(2, 3) As String
+
+        asPeople(0, 0) = "John"
+        asPeople(0, 1) = "Smith"
+        asPeople(0, 2) = "Male"
+        asPeople(0, 3) = "20"
+
+        asPeople(1, 0) = "Jolie"
+        asPeople(1, 1) = "Angelina"
+        asPeople(1, 2) = "Female"
+        asPeople(1, 3) = "43"
+
+        asPeople(2, 0) = "Jennifer"
+        asPeople(2, 1) = "Lopez"
+        asPeople(2, 2) = "Female"
+        asPeople(2, 3) = "21"
+
+        Dim i As Integer
+        Dim j As Integer
+        Dim sPerson As String
+
+        sPerson = "User "
+        For i = 0 To 2
+            sPerson += vbTab & i & ":"
+            For j = 0 To 3
+                sPerson += vbTab & asPeople(i, j)
+            Next
+            sPerson += Environment.NewLine
+        Next
+
+        MsgBox(sPerson)
+
+    End Sub
+
+    Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
+        Timer1.Start()
+    End Sub
+
+    Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
+        Timer1.Stop()
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+
+        Timer1.Stop()
+        ProgressBar1.Value = 0
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        ProgressBar1.Increment(txtTimerIncrement.Text)
+        Timer1.Interval = txtTimerInterval.Text
     End Sub
 End Class
