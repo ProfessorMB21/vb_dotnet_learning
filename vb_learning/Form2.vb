@@ -7,10 +7,9 @@ Public Class FormLogin
         sPassword = "password"
 
         If txtPassword.Text = sPassword Then
-            MsgBox("You're in!")
             Threading.Thread.Sleep(20)
             Close()
-            Form1.Focus()
+            Form3.Show()
         Else
             MsgBox("Please try again!")
             txtPassword.Focus()

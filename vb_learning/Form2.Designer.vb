@@ -40,7 +40,7 @@ Partial Class FormLogin
         ' 
         txtPassword.Location = New Point(281, 155)
         txtPassword.Name = "txtPassword"
-        txtPassword.PasswordChar = "@"c
+        txtPassword.PasswordChar = "*"c
         txtPassword.Size = New Size(273, 23)
         txtPassword.TabIndex = 1
         ' 
@@ -55,6 +55,7 @@ Partial Class FormLogin
         ' 
         ' FormLogin
         ' 
+        AcceptButton = btnLogin
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
