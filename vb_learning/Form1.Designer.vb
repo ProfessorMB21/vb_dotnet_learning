@@ -57,6 +57,8 @@ Partial Class Form1
         txtTimerIncrement = New TextBox()
         txtTimerInterval = New TextBox()
         Timer1 = New Timer(components)
+        btnToLoginForm = New Button()
+        BackgroundWorker1 = New ComponentModel.BackgroundWorker()
         SuspendLayout()
         ' 
         ' btn_start
@@ -234,18 +236,18 @@ Partial Class Form1
         ' 
         ' btnDoUntil
         ' 
-        btnDoUntil.Location = New Point(664, 476)
+        btnDoUntil.Location = New Point(664, 474)
         btnDoUntil.Name = "btnDoUntil"
-        btnDoUntil.Size = New Size(132, 58)
+        btnDoUntil.Size = New Size(132, 60)
         btnDoUntil.TabIndex = 20
         btnDoUntil.Text = "LoopingDoUntil"
         btnDoUntil.UseVisualStyleBackColor = True
         ' 
         ' btnCondLoop
         ' 
-        btnCondLoop.Location = New Point(664, 556)
+        btnCondLoop.Location = New Point(664, 550)
         btnCondLoop.Name = "btnCondLoop"
-        btnCondLoop.Size = New Size(127, 52)
+        btnCondLoop.Size = New Size(132, 58)
         btnCondLoop.TabIndex = 21
         btnCondLoop.Text = "Conditioned Loop"
         btnCondLoop.UseVisualStyleBackColor = True
@@ -344,11 +346,21 @@ Partial Class Form1
         ' Timer1
         ' 
         ' 
+        ' btnToLoginForm
+        ' 
+        btnToLoginForm.Location = New Point(1096, 499)
+        btnToLoginForm.Name = "btnToLoginForm"
+        btnToLoginForm.Size = New Size(129, 46)
+        btnToLoginForm.TabIndex = 33
+        btnToLoginForm.Text = "Login Form"
+        btnToLoginForm.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1334, 668)
+        Controls.Add(btnToLoginForm)
         Controls.Add(txtTimerInterval)
         Controls.Add(txtTimerIncrement)
         Controls.Add(btnStop)
@@ -422,5 +434,7 @@ Partial Class Form1
     Friend WithEvents txtTimerIncrement As TextBox
     Friend WithEvents txtTimerInterval As TextBox
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents btnToLoginForm As Button
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 
 End Class

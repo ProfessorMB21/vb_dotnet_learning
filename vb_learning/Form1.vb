@@ -219,7 +219,7 @@
         Dim bFound As Boolean
 
 
-        asNames(0) = "Bupe"
+        asNames(0) = "Margaret"
         asNames(1) = "Clara"
         asNames(2) = "Chola"
         asNames(3) = "Rabecca"
@@ -301,5 +301,9 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ProgressBar1.Increment(txtTimerIncrement.Text)
         Timer1.Interval = txtTimerInterval.Text
+    End Sub
+
+    Private Sub btnToLoginForm_Click(sender As Object, e As EventArgs) Handles btnToLoginForm.Click
+        FormLogin.Show()
     End Sub
 End Class
