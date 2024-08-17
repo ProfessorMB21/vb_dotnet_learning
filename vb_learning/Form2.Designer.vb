@@ -63,6 +63,7 @@ Partial Class FormLogin
         Controls.Add(txtPassword)
         Controls.Add(btnLogin)
         Name = "FormLogin"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Login Form"
         ResumeLayout(False)
         PerformLayout()

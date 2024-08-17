@@ -395,6 +395,7 @@ Partial Class Form1
         Controls.Add(btnGo)
         Controls.Add(btn_start)
         Name = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Visual Basic Learning"
         ResumeLayout(False)
         PerformLayout()

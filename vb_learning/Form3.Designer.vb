@@ -42,11 +42,11 @@ Partial Class Form3
         Label6 = New Label()
         txtPassportNo = New TextBox()
         Label7 = New Label()
-        DateTimePicker2 = New DateTimePicker()
+        dateDateOfIssue = New DateTimePicker()
         Label9 = New Label()
-        DateTimePicker3 = New DateTimePicker()
+        dateDateOfExpiry = New DateTimePicker()
         Label10 = New Label()
-        TextBox4 = New TextBox()
+        txtAuthority = New TextBox()
         Label11 = New Label()
         GroupBox3 = New GroupBox()
         comboNationality = New ComboBox()
@@ -64,6 +64,8 @@ Partial Class Form3
         SaveAllToolStripMenuItem1 = New ToolStripMenuItem()
         ClearAllMenuItem1 = New ToolStripMenuItem()
         SubmitToolStripMenuItem = New ToolStripMenuItem()
+        ToolsToolStripMenuItem = New ToolStripMenuItem()
+        SettingsToolStripMenuItem = New ToolStripMenuItem()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
@@ -114,9 +116,10 @@ Partial Class Form3
         ' 
         ' Label4
         ' 
+        Label4.Anchor = AnchorStyles.Top
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 20F)
-        Label4.Location = New Point(266, 18)
+        Label4.Location = New Point(276, 24)
         Label4.Name = "Label4"
         Label4.Size = New Size(205, 37)
         Label4.TabIndex = 6
@@ -213,6 +216,7 @@ Partial Class Form3
         ' 
         ' btnSubmitForm
         ' 
+        btnSubmitForm.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         btnSubmitForm.BackColor = SystemColors.ControlLightLight
         btnSubmitForm.BackgroundImageLayout = ImageLayout.None
         btnSubmitForm.Location = New Point(632, 523)
@@ -224,6 +228,7 @@ Partial Class Form3
         ' 
         ' btnSaveState
         ' 
+        btnSaveState.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         btnSaveState.BackColor = SystemColors.ControlLightLight
         btnSaveState.BackgroundImageLayout = ImageLayout.None
         btnSaveState.Location = New Point(493, 523)
@@ -271,7 +276,7 @@ Partial Class Form3
         txtPassportNo.Location = New Point(115, 101)
         txtPassportNo.MaxLength = 255
         txtPassportNo.Name = "txtPassportNo"
-        txtPassportNo.PlaceholderText = "ZN743032"
+        txtPassportNo.PlaceholderText = "e.g ZNXXXXXX"
         txtPassportNo.Size = New Size(200, 23)
         txtPassportNo.TabIndex = 18
         ' 
@@ -284,12 +289,14 @@ Partial Class Form3
         Label7.TabIndex = 17
         Label7.Text = "Passport No."
         ' 
-        ' DateTimePicker2
+        ' dateDateOfIssue
         ' 
-        DateTimePicker2.Location = New Point(115, 139)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(200, 23)
-        DateTimePicker2.TabIndex = 22
+        dateDateOfIssue.Location = New Point(115, 139)
+        dateDateOfIssue.MaxDate = New Date(3000, 12, 31, 0, 0, 0, 0)
+        dateDateOfIssue.MinDate = New Date(1901, 1, 1, 0, 0, 0, 0)
+        dateDateOfIssue.Name = "dateDateOfIssue"
+        dateDateOfIssue.Size = New Size(200, 23)
+        dateDateOfIssue.TabIndex = 22
         ' 
         ' Label9
         ' 
@@ -300,12 +307,14 @@ Partial Class Form3
         Label9.TabIndex = 21
         Label9.Text = "Date of Issue"
         ' 
-        ' DateTimePicker3
+        ' dateDateOfExpiry
         ' 
-        DateTimePicker3.Location = New Point(115, 177)
-        DateTimePicker3.Name = "DateTimePicker3"
-        DateTimePicker3.Size = New Size(200, 23)
-        DateTimePicker3.TabIndex = 24
+        dateDateOfExpiry.Location = New Point(115, 177)
+        dateDateOfExpiry.MaxDate = New Date(3000, 12, 31, 0, 0, 0, 0)
+        dateDateOfExpiry.MinDate = New Date(1901, 1, 1, 0, 0, 0, 0)
+        dateDateOfExpiry.Name = "dateDateOfExpiry"
+        dateDateOfExpiry.Size = New Size(200, 23)
+        dateDateOfExpiry.TabIndex = 24
         ' 
         ' Label10
         ' 
@@ -316,16 +325,16 @@ Partial Class Form3
         Label10.TabIndex = 23
         Label10.Text = "Date of Expiry"
         ' 
-        ' TextBox4
+        ' txtAuthority
         ' 
-        TextBox4.AllowDrop = True
-        TextBox4.CharacterCasing = CharacterCasing.Upper
-        TextBox4.Cursor = Cursors.IBeam
-        TextBox4.Location = New Point(115, 215)
-        TextBox4.MaxLength = 255
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(200, 23)
-        TextBox4.TabIndex = 26
+        txtAuthority.AllowDrop = True
+        txtAuthority.CharacterCasing = CharacterCasing.Upper
+        txtAuthority.Cursor = Cursors.IBeam
+        txtAuthority.Location = New Point(115, 215)
+        txtAuthority.MaxLength = 255
+        txtAuthority.Name = "txtAuthority"
+        txtAuthority.Size = New Size(200, 23)
+        txtAuthority.TabIndex = 26
         ' 
         ' Label11
         ' 
@@ -339,27 +348,29 @@ Partial Class Form3
         ' 
         ' GroupBox3
         ' 
+        GroupBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         GroupBox3.Controls.Add(comboNationality)
-        GroupBox3.Controls.Add(TextBox4)
+        GroupBox3.Controls.Add(txtAuthority)
         GroupBox3.Controls.Add(Label11)
-        GroupBox3.Controls.Add(DateTimePicker3)
+        GroupBox3.Controls.Add(dateDateOfExpiry)
         GroupBox3.Controls.Add(Label10)
-        GroupBox3.Controls.Add(DateTimePicker2)
+        GroupBox3.Controls.Add(dateDateOfIssue)
         GroupBox3.Controls.Add(Label9)
         GroupBox3.Controls.Add(txtPassportNo)
         GroupBox3.Controls.Add(Label7)
         GroupBox3.Controls.Add(txtCountryCode)
         GroupBox3.Controls.Add(Label5)
         GroupBox3.Controls.Add(Label6)
-        GroupBox3.Location = New Point(413, 70)
+        GroupBox3.Location = New Point(430, 67)
         GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(335, 257)
+        GroupBox3.Size = New Size(335, 260)
         GroupBox3.TabIndex = 27
         GroupBox3.TabStop = False
         GroupBox3.Text = "Passport"
         ' 
         ' comboNationality
         ' 
+        comboNationality.BackColor = SystemColors.ControlLightLight
         comboNationality.FormattingEnabled = True
         comboNationality.ImeMode = ImeMode.NoControl
         comboNationality.Items.AddRange(New Object() {"Australia", "Brazil", "China", "Colombia", "England", "Indonesia", "Japan", "Russia", "South Africa", "South Korea", "United States of America", "Zambia"})
@@ -371,7 +382,7 @@ Partial Class Form3
         ' 
         ' MenuStrip1
         ' 
-        MenuStrip1.Items.AddRange(New ToolStripItem() {ColonToolStripMenuItem, OperationToolStripMenuItem})
+        MenuStrip1.Items.AddRange(New ToolStripItem() {ColonToolStripMenuItem, OperationToolStripMenuItem, ToolsToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.Size = New Size(800, 24)
@@ -446,20 +457,33 @@ Partial Class Form3
         ' SaveAllToolStripMenuItem1
         ' 
         SaveAllToolStripMenuItem1.Name = "SaveAllToolStripMenuItem1"
-        SaveAllToolStripMenuItem1.Size = New Size(180, 22)
+        SaveAllToolStripMenuItem1.Size = New Size(118, 22)
         SaveAllToolStripMenuItem1.Text = "Save All"
         ' 
         ' ClearAllMenuItem1
         ' 
         ClearAllMenuItem1.Name = "ClearAllMenuItem1"
-        ClearAllMenuItem1.Size = New Size(180, 22)
+        ClearAllMenuItem1.Size = New Size(118, 22)
         ClearAllMenuItem1.Text = "Clear All"
         ' 
         ' SubmitToolStripMenuItem
         ' 
         SubmitToolStripMenuItem.Name = "SubmitToolStripMenuItem"
-        SubmitToolStripMenuItem.Size = New Size(180, 22)
+        SubmitToolStripMenuItem.Size = New Size(118, 22)
         SubmitToolStripMenuItem.Text = "Submit"
+        ' 
+        ' ToolsToolStripMenuItem
+        ' 
+        ToolsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {SettingsToolStripMenuItem})
+        ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        ToolsToolStripMenuItem.Size = New Size(46, 20)
+        ToolsToolStripMenuItem.Text = "Tools"
+        ' 
+        ' SettingsToolStripMenuItem
+        ' 
+        SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        SettingsToolStripMenuItem.Size = New Size(116, 22)
+        SettingsToolStripMenuItem.Text = "Settings"
         ' 
         ' Form3
         ' 
@@ -473,8 +497,9 @@ Partial Class Form3
         Controls.Add(Label4)
         Controls.Add(MenuStrip1)
         MainMenuStrip = MenuStrip1
+        MinimumSize = New Size(778, 603)
         Name = "Form3"
-        Opacity = 0.9R
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Colon"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
@@ -504,11 +529,11 @@ Partial Class Form3
     Friend WithEvents Label6 As Label
     Friend WithEvents txtPassportNo As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents dateDateOfIssue As DateTimePicker
     Friend WithEvents Label9 As Label
-    Friend WithEvents DateTimePicker3 As DateTimePicker
+    Friend WithEvents dateDateOfExpiry As DateTimePicker
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtAuthority As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label3 As Label
@@ -530,4 +555,6 @@ Partial Class Form3
     Friend WithEvents SubmitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ClearAllMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
 End Class
