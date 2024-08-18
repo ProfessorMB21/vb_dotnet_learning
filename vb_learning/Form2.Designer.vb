@@ -25,6 +25,7 @@ Partial Class FormLogin
         btnLogin = New Button()
         txtPassword = New TextBox()
         Label1 = New Label()
+        lbState = New Label()
         SuspendLayout()
         ' 
         ' btnLogin
@@ -47,11 +48,21 @@ Partial Class FormLogin
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(201, 163)
+        Label1.Location = New Point(215, 163)
         Label1.Name = "Label1"
-        Label1.Size = New Size(57, 15)
+        Label1.Size = New Size(60, 15)
         Label1.TabIndex = 2
-        Label1.Text = "Password"
+        Label1.Text = "Password:"
+        ' 
+        ' lbState
+        ' 
+        lbState.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        lbState.AutoSize = True
+        lbState.Location = New Point(12, 426)
+        lbState.Name = "lbState"
+        lbState.Size = New Size(61, 15)
+        lbState.TabIndex = 3
+        lbState.Text = "LabelState"
         ' 
         ' FormLogin
         ' 
@@ -59,6 +70,7 @@ Partial Class FormLogin
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(lbState)
         Controls.Add(Label1)
         Controls.Add(txtPassword)
         Controls.Add(btnLogin)
@@ -72,4 +84,5 @@ Partial Class FormLogin
     Friend WithEvents btnLogin As Button
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents lbState As Label
 End Class

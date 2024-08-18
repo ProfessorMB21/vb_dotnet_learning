@@ -38,11 +38,26 @@ Partial Class FormSettings
         btnRevert = New Button()
         btnApply = New Button()
         btnCancel = New Button()
+        Label1 = New Label()
+        txtOverrideConfigName = New TextBox()
+        btnConfigOverride = New Button()
+        GroupBox4 = New GroupBox()
+        btnGoAdminMode = New Button()
+        txOverrideAdminCode = New TextBox()
+        GroupBox5 = New GroupBox()
+        Label2 = New Label()
+        Label3 = New Label()
+        txtCurrFileName = New TextBox()
+        GroupBox6 = New GroupBox()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox3.SuspendLayout()
         tabSettingsControl.SuspendLayout()
         tabAppearance.SuspendLayout()
+        tabAdvanced.SuspendLayout()
+        GroupBox4.SuspendLayout()
+        GroupBox5.SuspendLayout()
+        GroupBox6.SuspendLayout()
         SuspendLayout()
         ' 
         ' radioLightMode
@@ -179,7 +194,9 @@ Partial Class FormSettings
         ' tabAdvanced
         ' 
         tabAdvanced.AutoScroll = True
-        tabAdvanced.BorderStyle = BorderStyle.Fixed3D
+        tabAdvanced.Controls.Add(GroupBox6)
+        tabAdvanced.Controls.Add(GroupBox5)
+        tabAdvanced.Controls.Add(GroupBox4)
         tabAdvanced.Location = New Point(4, 24)
         tabAdvanced.Name = "tabAdvanced"
         tabAdvanced.Padding = New Padding(3)
@@ -215,6 +232,111 @@ Partial Class FormSettings
         btnCancel.Text = "Cancel"
         btnCancel.UseVisualStyleBackColor = True
         ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(6, 77)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(98, 15)
+        Label1.TabIndex = 0
+        Label1.Text = "Config. filename:"
+        ' 
+        ' txtOverrideConfigName
+        ' 
+        txtOverrideConfigName.Location = New Point(120, 74)
+        txtOverrideConfigName.Name = "txtOverrideConfigName"
+        txtOverrideConfigName.Size = New Size(245, 23)
+        txtOverrideConfigName.TabIndex = 1
+        ' 
+        ' btnConfigOverride
+        ' 
+        btnConfigOverride.FlatStyle = FlatStyle.System
+        btnConfigOverride.Location = New Point(227, 113)
+        btnConfigOverride.Name = "btnConfigOverride"
+        btnConfigOverride.Size = New Size(138, 30)
+        btnConfigOverride.TabIndex = 2
+        btnConfigOverride.Text = "Override"
+        btnConfigOverride.UseVisualStyleBackColor = True
+        ' 
+        ' GroupBox4
+        ' 
+        GroupBox4.Controls.Add(txtCurrFileName)
+        GroupBox4.Controls.Add(Label3)
+        GroupBox4.Controls.Add(btnConfigOverride)
+        GroupBox4.Controls.Add(txtOverrideConfigName)
+        GroupBox4.Controls.Add(Label1)
+        GroupBox4.Location = New Point(23, 23)
+        GroupBox4.Name = "GroupBox4"
+        GroupBox4.Size = New Size(382, 167)
+        GroupBox4.TabIndex = 3
+        GroupBox4.TabStop = False
+        GroupBox4.Text = "System Files"
+        ' 
+        ' btnGoAdminMode
+        ' 
+        btnGoAdminMode.Location = New Point(228, 22)
+        btnGoAdminMode.Name = "btnGoAdminMode"
+        btnGoAdminMode.Size = New Size(138, 37)
+        btnGoAdminMode.TabIndex = 4
+        btnGoAdminMode.Text = "Admin"
+        btnGoAdminMode.UseVisualStyleBackColor = True
+        ' 
+        ' txOverrideAdminCode
+        ' 
+        txOverrideAdminCode.Location = New Point(75, 33)
+        txOverrideAdminCode.MaxLength = 1024
+        txOverrideAdminCode.Name = "txOverrideAdminCode"
+        txOverrideAdminCode.PasswordChar = "*"c
+        txOverrideAdminCode.Size = New Size(291, 23)
+        txOverrideAdminCode.TabIndex = 5
+        ' 
+        ' GroupBox5
+        ' 
+        GroupBox5.Controls.Add(Label2)
+        GroupBox5.Controls.Add(txOverrideAdminCode)
+        GroupBox5.Location = New Point(22, 205)
+        GroupBox5.Name = "GroupBox5"
+        GroupBox5.Size = New Size(382, 76)
+        GroupBox5.TabIndex = 6
+        GroupBox5.TabStop = False
+        GroupBox5.Text = "Overwrite System files"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(21, 37)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(35, 15)
+        Label2.TabIndex = 6
+        Label2.Text = "Code"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(6, 36)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(85, 15)
+        Label3.TabIndex = 3
+        Label3.Text = "Curr. filename:"
+        ' 
+        ' txtCurrFileName
+        ' 
+        txtCurrFileName.Location = New Point(120, 36)
+        txtCurrFileName.Name = "txtCurrFileName"
+        txtCurrFileName.ReadOnly = True
+        txtCurrFileName.Size = New Size(245, 23)
+        txtCurrFileName.TabIndex = 4
+        ' 
+        ' GroupBox6
+        ' 
+        GroupBox6.Controls.Add(btnGoAdminMode)
+        GroupBox6.Location = New Point(22, 287)
+        GroupBox6.Name = "GroupBox6"
+        GroupBox6.Size = New Size(384, 71)
+        GroupBox6.TabIndex = 7
+        GroupBox6.TabStop = False
+        GroupBox6.Text = "Admin Privilege"
+        ' 
         ' FormSettings
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -241,6 +363,12 @@ Partial Class FormSettings
         GroupBox3.PerformLayout()
         tabSettingsControl.ResumeLayout(False)
         tabAppearance.ResumeLayout(False)
+        tabAdvanced.ResumeLayout(False)
+        GroupBox4.ResumeLayout(False)
+        GroupBox4.PerformLayout()
+        GroupBox5.ResumeLayout(False)
+        GroupBox5.PerformLayout()
+        GroupBox6.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -260,4 +388,15 @@ Partial Class FormSettings
     Friend WithEvents CheckBox3 As CheckBox
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btnGoAdminMode As Button
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents btnConfigOverride As Button
+    Friend WithEvents txtOverrideConfigName As TextBox
+    Friend WithEvents txOverrideAdminCode As TextBox
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtCurrFileName As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents GroupBox6 As GroupBox
 End Class

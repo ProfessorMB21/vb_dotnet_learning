@@ -348,6 +348,10 @@ Partial Class Form1
         ' 
         ' btnToLoginForm
         ' 
+        btnToLoginForm.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        btnToLoginForm.BackgroundImageLayout = ImageLayout.None
+        btnToLoginForm.Image = My.Resources.Resources.photo_2024_02_06_19_17_29
+        btnToLoginForm.ImageAlign = ContentAlignment.BottomCenter
         btnToLoginForm.Location = New Point(1096, 499)
         btnToLoginForm.Name = "btnToLoginForm"
         btnToLoginForm.Size = New Size(129, 46)

@@ -185,7 +185,6 @@
         Dim iMaxElements As Integer
         Dim iCount As Integer
 
-
         Do Until IsNumeric(sLen)
             sLen = InputBox("enter the length of your array")
         Loop

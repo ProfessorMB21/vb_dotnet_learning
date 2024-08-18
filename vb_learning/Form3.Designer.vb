@@ -30,7 +30,7 @@ Partial Class Form3
         radioMale = New RadioButton()
         radioFemale = New RadioButton()
         GroupBox1 = New GroupBox()
-        GroupBox2 = New GroupBox()
+        groupGeneral = New GroupBox()
         comboOccupation = New ComboBox()
         Label3 = New Label()
         dateDateOfBirth = New DateTimePicker()
@@ -48,7 +48,7 @@ Partial Class Form3
         Label10 = New Label()
         txtAuthority = New TextBox()
         Label11 = New Label()
-        GroupBox3 = New GroupBox()
+        groupPassport = New GroupBox()
         comboNationality = New ComboBox()
         MenuStrip1 = New MenuStrip()
         ColonToolStripMenuItem = New ToolStripMenuItem()
@@ -67,8 +67,8 @@ Partial Class Form3
         ToolsToolStripMenuItem = New ToolStripMenuItem()
         SettingsToolStripMenuItem = New ToolStripMenuItem()
         GroupBox1.SuspendLayout()
-        GroupBox2.SuspendLayout()
-        GroupBox3.SuspendLayout()
+        groupGeneral.SuspendLayout()
+        groupPassport.SuspendLayout()
         MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -159,28 +159,28 @@ Partial Class Form3
         GroupBox1.TabStop = False
         GroupBox1.Text = "Sex"
         ' 
-        ' GroupBox2
+        ' groupGeneral
         ' 
-        GroupBox2.Controls.Add(comboOccupation)
-        GroupBox2.Controls.Add(Label3)
-        GroupBox2.Controls.Add(dateDateOfBirth)
-        GroupBox2.Controls.Add(Label8)
-        GroupBox2.Controls.Add(GroupBox1)
-        GroupBox2.Controls.Add(txtLastName)
-        GroupBox2.Controls.Add(Label2)
-        GroupBox2.Controls.Add(txtFirstName)
-        GroupBox2.Controls.Add(Label1)
-        GroupBox2.Location = New Point(30, 67)
-        GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(322, 260)
-        GroupBox2.TabIndex = 11
-        GroupBox2.TabStop = False
-        GroupBox2.Text = "General"
+        groupGeneral.Controls.Add(comboOccupation)
+        groupGeneral.Controls.Add(Label3)
+        groupGeneral.Controls.Add(dateDateOfBirth)
+        groupGeneral.Controls.Add(Label8)
+        groupGeneral.Controls.Add(GroupBox1)
+        groupGeneral.Controls.Add(txtLastName)
+        groupGeneral.Controls.Add(Label2)
+        groupGeneral.Controls.Add(txtFirstName)
+        groupGeneral.Controls.Add(Label1)
+        groupGeneral.Location = New Point(30, 67)
+        groupGeneral.Name = "groupGeneral"
+        groupGeneral.Size = New Size(322, 260)
+        groupGeneral.TabIndex = 11
+        groupGeneral.TabStop = False
+        groupGeneral.Text = "General"
         ' 
         ' comboOccupation
         ' 
+        comboOccupation.DropDownStyle = ComboBoxStyle.DropDownList
         comboOccupation.FormattingEnabled = True
-        comboOccupation.Items.AddRange(New Object() {"Doctor", "High school student", "Mathematician", "Professor", "Programmer", "Retiree", "Soldier", "Student", "Teacher"})
         comboOccupation.Location = New Point(100, 218)
         comboOccupation.Name = "comboOccupation"
         comboOccupation.Size = New Size(203, 23)
@@ -219,7 +219,7 @@ Partial Class Form3
         btnSubmitForm.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         btnSubmitForm.BackColor = SystemColors.ControlLightLight
         btnSubmitForm.BackgroundImageLayout = ImageLayout.None
-        btnSubmitForm.Location = New Point(632, 523)
+        btnSubmitForm.Location = New Point(632, 355)
         btnSubmitForm.Name = "btnSubmitForm"
         btnSubmitForm.Size = New Size(133, 29)
         btnSubmitForm.TabIndex = 12
@@ -231,7 +231,7 @@ Partial Class Form3
         btnSaveState.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         btnSaveState.BackColor = SystemColors.ControlLightLight
         btnSaveState.BackgroundImageLayout = ImageLayout.None
-        btnSaveState.Location = New Point(493, 523)
+        btnSaveState.Location = New Point(493, 355)
         btnSaveState.Name = "btnSaveState"
         btnSaveState.Size = New Size(133, 29)
         btnSaveState.TabIndex = 13
@@ -244,7 +244,7 @@ Partial Class Form3
         txtCountryCode.CharacterCasing = CharacterCasing.Upper
         txtCountryCode.Cursor = Cursors.IBeam
         txtCountryCode.Location = New Point(115, 63)
-        txtCountryCode.MaxLength = 255
+        txtCountryCode.MaxLength = 3
         txtCountryCode.Name = "txtCountryCode"
         txtCountryCode.PlaceholderText = "ZMB"
         txtCountryCode.Size = New Size(200, 23)
@@ -346,34 +346,34 @@ Partial Class Form3
         Label11.Tag = "Authority which issued your passport"
         Label11.Text = "Authority"
         ' 
-        ' GroupBox3
+        ' groupPassport
         ' 
-        GroupBox3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        GroupBox3.Controls.Add(comboNationality)
-        GroupBox3.Controls.Add(txtAuthority)
-        GroupBox3.Controls.Add(Label11)
-        GroupBox3.Controls.Add(dateDateOfExpiry)
-        GroupBox3.Controls.Add(Label10)
-        GroupBox3.Controls.Add(dateDateOfIssue)
-        GroupBox3.Controls.Add(Label9)
-        GroupBox3.Controls.Add(txtPassportNo)
-        GroupBox3.Controls.Add(Label7)
-        GroupBox3.Controls.Add(txtCountryCode)
-        GroupBox3.Controls.Add(Label5)
-        GroupBox3.Controls.Add(Label6)
-        GroupBox3.Location = New Point(430, 67)
-        GroupBox3.Name = "GroupBox3"
-        GroupBox3.Size = New Size(335, 260)
-        GroupBox3.TabIndex = 27
-        GroupBox3.TabStop = False
-        GroupBox3.Text = "Passport"
+        groupPassport.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        groupPassport.Controls.Add(comboNationality)
+        groupPassport.Controls.Add(txtAuthority)
+        groupPassport.Controls.Add(Label11)
+        groupPassport.Controls.Add(dateDateOfExpiry)
+        groupPassport.Controls.Add(Label10)
+        groupPassport.Controls.Add(dateDateOfIssue)
+        groupPassport.Controls.Add(Label9)
+        groupPassport.Controls.Add(txtPassportNo)
+        groupPassport.Controls.Add(Label7)
+        groupPassport.Controls.Add(txtCountryCode)
+        groupPassport.Controls.Add(Label5)
+        groupPassport.Controls.Add(Label6)
+        groupPassport.Location = New Point(430, 67)
+        groupPassport.Name = "groupPassport"
+        groupPassport.Size = New Size(335, 260)
+        groupPassport.TabIndex = 27
+        groupPassport.TabStop = False
+        groupPassport.Text = "Passport"
         ' 
         ' comboNationality
         ' 
         comboNationality.BackColor = SystemColors.ControlLightLight
+        comboNationality.DropDownStyle = ComboBoxStyle.DropDownList
         comboNationality.FormattingEnabled = True
         comboNationality.ImeMode = ImeMode.NoControl
-        comboNationality.Items.AddRange(New Object() {"Australia", "Brazil", "China", "Colombia", "England", "Indonesia", "Japan", "Russia", "South Africa", "South Korea", "United States of America", "Zambia"})
         comboNationality.Location = New Point(115, 25)
         comboNationality.Name = "comboNationality"
         comboNationality.Size = New Size(200, 23)
@@ -407,7 +407,7 @@ Partial Class Form3
         ' 
         GeneralToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearToolStripMenuItem1, SaveToolStripMenuItem})
         GeneralToolStripMenuItem.Name = "GeneralToolStripMenuItem"
-        GeneralToolStripMenuItem.Size = New Size(119, 22)
+        GeneralToolStripMenuItem.Size = New Size(180, 22)
         GeneralToolStripMenuItem.Text = "General"
         ' 
         ' ClearToolStripMenuItem1
@@ -426,7 +426,7 @@ Partial Class Form3
         ' 
         PassportToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearToolStripMenuItem, SaveToolStripMenuItem1})
         PassportToolStripMenuItem.Name = "PassportToolStripMenuItem"
-        PassportToolStripMenuItem.Size = New Size(119, 22)
+        PassportToolStripMenuItem.Size = New Size(180, 22)
         PassportToolStripMenuItem.Text = "Passport"
         ' 
         ' ClearToolStripMenuItem
@@ -482,31 +482,31 @@ Partial Class Form3
         ' SettingsToolStripMenuItem
         ' 
         SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        SettingsToolStripMenuItem.Size = New Size(116, 22)
+        SettingsToolStripMenuItem.Size = New Size(180, 22)
         SettingsToolStripMenuItem.Text = "Settings"
         ' 
         ' Form3
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 564)
-        Controls.Add(GroupBox3)
+        ClientSize = New Size(800, 396)
+        Controls.Add(groupPassport)
         Controls.Add(btnSaveState)
         Controls.Add(btnSubmitForm)
-        Controls.Add(GroupBox2)
+        Controls.Add(groupGeneral)
         Controls.Add(Label4)
         Controls.Add(MenuStrip1)
         MainMenuStrip = MenuStrip1
-        MinimumSize = New Size(778, 603)
+        MinimumSize = New Size(778, 435)
         Name = "Form3"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Colon"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
-        GroupBox2.ResumeLayout(False)
-        GroupBox2.PerformLayout()
-        GroupBox3.ResumeLayout(False)
-        GroupBox3.PerformLayout()
+        groupGeneral.ResumeLayout(False)
+        groupGeneral.PerformLayout()
+        groupPassport.ResumeLayout(False)
+        groupPassport.PerformLayout()
         MenuStrip1.ResumeLayout(False)
         MenuStrip1.PerformLayout()
         ResumeLayout(False)
@@ -521,7 +521,7 @@ Partial Class Form3
     Friend WithEvents radioMale As RadioButton
     Friend WithEvents radioFemale As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents groupGeneral As GroupBox
     Friend WithEvents btnSubmitForm As Button
     Friend WithEvents btnSaveState As Button
     Friend WithEvents txtCountryCode As TextBox
@@ -535,7 +535,7 @@ Partial Class Form3
     Friend WithEvents Label10 As Label
     Friend WithEvents txtAuthority As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents groupPassport As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents dateDateOfBirth As DateTimePicker
     Friend WithEvents Label8 As Label
