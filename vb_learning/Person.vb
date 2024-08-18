@@ -1,6 +1,7 @@
 ﻿Public Module Objects
     Public Class DataHandler
         Dim mArrayLength As Integer
+
         Public Sub New()
 
         End Sub
@@ -27,16 +28,12 @@
         End Property
 
         Public Function Handle(array As Integer(), expectedLength As Integer) As Boolean
-            If array.Length = expectedLength Then
-                Return True
-            End If
+            If array.Length = expectedLength Then Return True
             Return False
         End Function
 
         Public Function Handle(array As Integer()) As Boolean
-            If Not array.Length = mArrayLength Then
-                Return False
-            End If
+            If Not array.Length = mArrayLength Then Return False
             Return True
         End Function
 
@@ -46,6 +43,15 @@
 
         Public Function Handle(value As Integer) As Boolean
             Return value <= 0
+        End Function
+
+        Public Function Handle(value As Char) As Boolean
+            Return Char.IsLetter(value) And (value.CompareTo("T") Or value.CompareTo("M"))
+        End Function
+
+        Public Function Handle(value As String) As Boolean
+            If String.IsNullOrEmpty(value) Or String.IsNullOrWhiteSpace(value) Then Return False
+            Return True
         End Function
 
     End Class
@@ -146,6 +152,71 @@
             End Set
         End Property
 
+        Public Property Type() As Char
+            Get
+                Return mType
+            End Get
+            Set(value As Char)
+                If Not handler.Handle(value) Then
+                    Exit Property
+                Else
+                    mType = value
+                End If
+            End Set
+        End Property
+
+        Public Property InvitationNumber() As String
+            Get
+                Return mInvitationNumber
+            End Get
+            Set(value As String)
+                If handler.Handle(value) Then
+                    mInvitationNumber = value
+                Else
+                    Exit Property
+                End If
+            End Set
+        End Property
+
+        Public Property VisaId() As String
+            Get
+                Return mVisaId
+            End Get
+            Set(value As String)
+                If handler.Handle(value) Then
+                    mVisaId = value
+                Else
+                    Exit Property
+                End If
+            End Set
+        End Property
+
+        Public Property InviteOrg() As String
+            Get
+                Return mInvitingOrg
+            End Get
+            Set(value As String)
+                If Not handler.Handle(value) Then
+                    Exit Property
+                Else
+                    mInvitingOrg = value
+                End If
+            End Set
+        End Property
+
+        Public Property EntryPurpose() As String
+            Get
+                Return mEntryPurpose
+            End Get
+            Set(value As String)
+                If Not handler.Handle(value) Then
+                    Exit Property
+                Else
+                    mEntryPurpose = value
+                End If
+            End Set
+        End Property
+
     End Class
 
     Public Class Person
@@ -155,7 +226,7 @@
         Dim mDob As Date
         Dim mSex As String
         Dim mOccupation As String
-
+        Private handler As DataHandler
 
 
     End Class
