@@ -2,12 +2,12 @@
 Imports System.IO
 
 Public Module FileIO
+    Private fPath As String
+    Private pHandler As PersonHandler
 
     Public Class Stream
         Dim fWriter As StreamWriter
         Dim fReader As StreamReader
-        Dim fPath As String
-        Dim pHandler As PersonHandler
 
         Public Property FilePath() As String
             Get
@@ -63,8 +63,6 @@ Public Module FileIO
         Dim fStream As FileStream
         Dim fWriter As BinaryWriter
         Dim fReader As BinaryReader
-        Dim fPath As String
-        Dim pHandler As PersonHandler
 
         Public Sub New(path As String)
             pHandler = New PersonHandler()
