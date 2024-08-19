@@ -407,7 +407,7 @@ Partial Class Form3
         ' 
         GeneralToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearToolStripMenuItem1, SaveToolStripMenuItem})
         GeneralToolStripMenuItem.Name = "GeneralToolStripMenuItem"
-        GeneralToolStripMenuItem.Size = New Size(180, 22)
+        GeneralToolStripMenuItem.Size = New Size(119, 22)
         GeneralToolStripMenuItem.Text = "General"
         ' 
         ' ClearToolStripMenuItem1
@@ -426,7 +426,7 @@ Partial Class Form3
         ' 
         PassportToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearToolStripMenuItem, SaveToolStripMenuItem1})
         PassportToolStripMenuItem.Name = "PassportToolStripMenuItem"
-        PassportToolStripMenuItem.Size = New Size(180, 22)
+        PassportToolStripMenuItem.Size = New Size(119, 22)
         PassportToolStripMenuItem.Text = "Passport"
         ' 
         ' ClearToolStripMenuItem
@@ -482,7 +482,7 @@ Partial Class Form3
         ' SettingsToolStripMenuItem
         ' 
         SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        SettingsToolStripMenuItem.Size = New Size(180, 22)
+        SettingsToolStripMenuItem.Size = New Size(116, 22)
         SettingsToolStripMenuItem.Text = "Settings"
         ' 
         ' Form3

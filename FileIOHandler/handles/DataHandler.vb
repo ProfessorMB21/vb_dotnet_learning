@@ -37,26 +37,27 @@
             Return True
         End Function
 
-        Public Function Handle(value As Date) As Boolean
+        Public Overridable Function Handle(value As Date) As Boolean
             Return value > Today()
         End Function
 
-        Public Function Handle(value As Integer) As Boolean
+        Public Overridable Function Handle(value As Integer) As Boolean
             Return value <= 0
         End Function
 
-        Public Function Handle(value As Char) As Boolean
+        Public Overridable Function Handle(value As Char) As Boolean
             Return Char.IsLetter(value) And (value.CompareTo("T") Or value.CompareTo("M"))
         End Function
 
-        Public Function Handle(value As String) As Boolean
+        Public Overridable Function Handle(value As String) As Boolean
             If String.IsNullOrEmpty(value) Or String.IsNullOrWhiteSpace(value) Then Return False
             Return True
         End Function
 
     End Class
 
-    Public Class PersonHandler
+    Public Class PersonHandler : Inherits VisaHandler
+
         Dim visaHandler As VisaHandler
         Dim bankHandler As BankHandler
 
@@ -80,26 +81,30 @@
             Return bankHandler
         End Function
 
-        Public Function Handle(value As Date) As Boolean
-            Return value > Today()
+        Public Overrides Function Handle(value As Date) As Boolean
+            Return MyBase.Handle(value)
         End Function
 
-        Public Function StringCheck(value As String) As Boolean
-            Return String.IsNullOrEmpty(value) And String.IsNullOrWhiteSpace(value)
+        Public Overrides Function Handle(value As String) As Boolean
+            Return MyBase.Handle(value)
+        End Function
+
+        Public Overrides Function Handle(value As Char) As Boolean
+            Return value.CompareTo("M") Or value.CompareTo("F")
         End Function
 
     End Class
 
-    Public Class BankHandler
+    Public Class BankHandler : Inherits PersonHandler
 
-        Public Class AccountHandler
+        Public Class AccountHandler : Inherits BankHandler
             Dim bIsBlocked As Boolean
             Private Shared decMaxAmount As Decimal
             Public Sub New()
 
             End Sub
 
-            Public Function Handle(amount As Decimal) As Boolean
+            Public Overloads Function Handle(amount As Decimal) As Boolean
                 Return amount >= 0.0 And amount <= 100000000.0
             End Function
 
@@ -115,6 +120,9 @@
 
         End Class
 
+        Public Overrides Function Handle(value As String) As Boolean
+            Return MyBase.Handle(value)
+        End Function
 
     End Class
 

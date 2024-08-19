@@ -1,4 +1,5 @@
-﻿Imports System.Numerics
+﻿Imports System.IO
+Imports System.Numerics
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar
 Imports FileIOHandler.DataHandler
 Imports FileIOHandler.FileIO
@@ -14,6 +15,10 @@ Public Class Form3
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Dim sNations(11) As String
+
+
+
+
 
         comboOccupation.Items.Add("Doctor")
         comboOccupation.Items.Add("High school student")
@@ -38,6 +43,10 @@ Public Class Form3
         comboNationality.Items.Add("United States of America")
         comboNationality.Items.Add("France")
         comboNationality.Items.Add("Zambia")
+
+    End Sub
+
+    Private Sub Form3_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
     End Sub
 End Class

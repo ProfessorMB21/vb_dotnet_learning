@@ -14,6 +14,17 @@ Public Module BankObject
 
         End Sub
 
+        Public Sub New(dateIssue As Date, dateExpiry As Date, bankName As String,
+                       pinCode As Integer, cardNumber As Integer, secureCode As Integer)
+
+            mDateIssue = dateIssue
+            mDateExpiry = dateExpiry
+            mBankName = bankName
+            mPinCode = pinCode
+            mSecurityCode = secureCode
+            mCardNumber = cardNumber
+        End Sub
+
     End Class
 
     Public Class Bank
@@ -25,9 +36,30 @@ Public Module BankObject
 
         End Sub
 
-        Public Sub New(accout As BankAccount)
-
+        Public Sub New(account As BankAccount)
+            mAccount = account
         End Sub
+
+        Public Property Name() As String
+            Get
+                Return mName
+            End Get
+            Set(value As String)
+                mHandler = New BankHandler()
+                If mHandler.Handle(value) Then
+                    mName = value
+                End If
+            End Set
+        End Property
+
+        Public Property Account() As BankAccount
+            Get
+                Return mAccount
+            End Get
+            Set(value As BankAccount)
+                mAccount = value
+            End Set
+        End Property
 
     End Class
 End Module

@@ -44,6 +44,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ObjectHandler">
+      <HintPath>..\ObjectHandler\bin\Debug\ObjectHandler.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -64,6 +67,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cryptography\Decrypt.vb" />
+    <Compile Include="cryptography\Encrypt.vb" />
     <Compile Include="handles\DataHandler.vb" />
     <Compile Include="io\FileIO.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
