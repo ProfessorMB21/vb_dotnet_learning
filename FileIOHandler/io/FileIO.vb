@@ -109,9 +109,9 @@ Public Module FileIO
             If iLen = 5 Then
                 person.FirstName = sPersonInfo(0)
                 person.LastName = sPersonInfo(1)
-                person.DateOfBirth = sPersonInfo(2)
+                person.DateOfBirth = CDate(sPersonInfo(2))
                 person.Occupation = sPersonInfo(3)
-                person.Sex = sPersonInfo(4)
+                person.Sex = CChar(sPersonInfo(4))
             Else
                 MsgBox("Unable to read file.", Nothing, "FileIO Unexpected Error")
                 Exit Sub
@@ -191,9 +191,9 @@ Public Module FileIO
             Dim tPerson As New Person With {
                 .FirstName = sPersonInfo(0),
                 .LastName = sPersonInfo(1),
-                .DateOfBirth = sPersonInfo(2),
+                .DateOfBirth = CDate(sPersonInfo(2)),
                 .Occupation = sPersonInfo(3),
-                .Sex = sPersonInfo(4)
+                .Sex = CChar(sPersonInfo(4))
             }
 
             Return tPerson
