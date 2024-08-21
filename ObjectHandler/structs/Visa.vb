@@ -188,7 +188,15 @@ Public Class Visa
     Public Function DaysLeft() As Integer
         Dim tSpan As TimeSpan
         tSpan = mDateExpiry - Today()
+        If tSpan.TotalDays < 0 Then Return 0
         Return tSpan.TotalDays()
+    End Function
+
+    Public Overrides Function ToString() As String
+        Return DateIssue.ToString() + vbNewLine + DateEntry.ToString() + vbNewLine + DateExpiry.ToString() +
+            vbNewLine + TotalDurationDays + vbNewLine + Type.ToString() + InvitationNumber + vbNewLine + VisaId +
+            vbNewLine + InviteOrg + vbNewLine + EntryPurpose + vbNewLine + Misc(0).ToString() + vbNewLine +
+            Misc(0).ToString() + vbNewLine + DaysLeft()
     End Function
 
 End Class

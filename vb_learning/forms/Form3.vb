@@ -1,10 +1,13 @@
-﻿Imports System.IO
-Imports System.Numerics
+﻿Imports System.Numerics
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar
+Imports FileIOHandler
 Imports FileIOHandler.DataHandler
 Imports FileIOHandler.FileIO
 Imports ObjectHandler
 Public Class Form3
+    Dim fileReader As FileIO.Stream
+    Dim fileWriter As FileIO.Stream
+
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Close()
     End Sub
@@ -14,35 +17,22 @@ Public Class Form3
     End Sub
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Dim sNations(11) As String
+        Dim filePathCountries As String = "D:\Datafiles\config\countries.txt"
+        Dim filePathProfessions As String = "D:\Datafiles\config\professions.txt"
+        fileReader = New FileIO.Stream(filePathCountries, False)
 
+        Do While Not fileReader.GetReader().EndOfStream
+            Dim sItem = fileReader.Read()
+            comboNationality.Items.Add(sItem)
+        Loop
+        fileReader.ReaderDeInit()
+        fileReader = New FileIO.Stream(filePathProfessions, False)
 
-
-
-
-        comboOccupation.Items.Add("Doctor")
-        comboOccupation.Items.Add("High school student")
-        comboOccupation.Items.Add("Mathematician")
-        comboOccupation.Items.Add("Professor")
-        comboOccupation.Items.Add("Programmer")
-        comboOccupation.Items.Add("Retiree")
-        comboOccupation.Items.Add("Soldier")
-        comboOccupation.Items.Add("Student")
-        comboOccupation.Items.Add("Teacher")
-
-        comboNationality.Items.Add("Australia")
-        comboNationality.Items.Add("Brazil")
-        comboNationality.Items.Add("China")
-        comboNationality.Items.Add("Colombia")
-        comboNationality.Items.Add("England")
-        comboNationality.Items.Add("Indonesia")
-        comboNationality.Items.Add("Japan")
-        comboNationality.Items.Add("Russia")
-        comboNationality.Items.Add("South Africa")
-        comboNationality.Items.Add("South Korea")
-        comboNationality.Items.Add("United States of America")
-        comboNationality.Items.Add("France")
-        comboNationality.Items.Add("Zambia")
+        Do While Not fileReader.GetReader().EndOfStream
+            Dim sItem = fileReader.Read()
+            comboOccupation.Items.Add(sItem)
+        Loop
+        fileReader.ReaderDeInit()
 
     End Sub
 

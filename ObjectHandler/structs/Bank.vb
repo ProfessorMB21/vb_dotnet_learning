@@ -25,6 +25,53 @@ Public Module BankObject
             mCardNumber = cardNumber
         End Sub
 
+        Public Property DateIssue() As Date
+            Get
+                Return mDateIssue
+            End Get
+            Set(value As Date)
+                mHandler = New VisaHandler()
+                If Not mHandler.Handle(value) Then
+                    mDateIssue = value
+                Else
+                    MsgBox("Invalid date.")
+                    Exit Property
+                End If
+            End Set
+        End Property
+
+        Public Property DateExpiry() As Date
+            Get
+                Return mDateExpiry
+            End Get
+            Set(value As Date)
+                mHandler = New VisaHandler()
+                If mHandler.Handle(value) Then
+                    mDateExpiry = value
+                Else
+                    MsgBox("Invalid date.")
+                    Exit Property
+                End If
+            End Set
+        End Property
+
+        Public Property BankName() As String
+            Get
+                Return mBankName
+            End Get
+            Set(value As String)
+                mHandler = New PersonHandler()
+                If mHandler.Handle(value) Then
+                    mBankName = value
+                End If
+            End Set
+        End Property
+
+        Public Overrides Function ToString() As String
+            Return DateIssue.ToString() + vbNewLine + DateExpiry.ToString() +
+                vbNewLine + BankName
+        End Function
+
     End Class
 
     Public Class Bank
@@ -38,6 +85,7 @@ Public Module BankObject
 
         Public Sub New(account As BankAccount)
             mAccount = account
+            mName = mAccount.BankName()
         End Sub
 
         Public Property Name() As String
@@ -60,6 +108,10 @@ Public Module BankObject
                 mAccount = value
             End Set
         End Property
+
+        Public Overrides Function ToString() As String
+            Return Name + Account.ToString()
+        End Function
 
     End Class
 End Module

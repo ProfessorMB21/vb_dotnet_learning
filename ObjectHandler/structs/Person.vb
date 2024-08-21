@@ -6,9 +6,9 @@ Public Class Person
     Dim mDob As Date
     Dim mSex As Char
     Dim mOccupation As String
-    Private mHandler As PersonHandler
     Dim mVisa As Visa
     Dim mBankCard As BankAccount
+    Private mHandler As PersonHandler
 
     Public Sub New()
 
@@ -112,5 +112,10 @@ Public Class Person
             mBankCard = value
         End Set
     End Property
+
+    Public Overrides Function ToString() As String
+        Return FirstName + vbNewLine + LastName + vbNewLine + DateOfBirth.ToString() + vbNewLine +
+            Occupation + vbNewLine + Sex
+    End Function
 
 End Class
