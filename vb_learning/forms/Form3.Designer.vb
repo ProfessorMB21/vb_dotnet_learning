@@ -132,7 +132,6 @@ Partial Class Form3
         radioMale.Name = "radioMale"
         radioMale.Size = New Size(51, 19)
         radioMale.TabIndex = 8
-        radioMale.TabStop = True
         radioMale.Text = "Male"
         radioMale.UseVisualStyleBackColor = True
         ' 
@@ -143,7 +142,6 @@ Partial Class Form3
         radioFemale.Name = "radioFemale"
         radioFemale.Size = New Size(63, 19)
         radioFemale.TabIndex = 9
-        radioFemale.TabStop = True
         radioFemale.Text = "Female"
         radioFemale.UseVisualStyleBackColor = True
         ' 
@@ -400,14 +398,14 @@ Partial Class Form3
         ' 
         FormsToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {GeneralToolStripMenuItem, PassportToolStripMenuItem})
         FormsToolStripMenuItem.Name = "FormsToolStripMenuItem"
-        FormsToolStripMenuItem.Size = New Size(180, 22)
+        FormsToolStripMenuItem.Size = New Size(107, 22)
         FormsToolStripMenuItem.Text = "Forms"
         ' 
         ' GeneralToolStripMenuItem
         ' 
         GeneralToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearToolStripMenuItem1, SaveToolStripMenuItem})
         GeneralToolStripMenuItem.Name = "GeneralToolStripMenuItem"
-        GeneralToolStripMenuItem.Size = New Size(180, 22)
+        GeneralToolStripMenuItem.Size = New Size(119, 22)
         GeneralToolStripMenuItem.Text = "General"
         ' 
         ' ClearToolStripMenuItem1
@@ -426,25 +424,25 @@ Partial Class Form3
         ' 
         PassportToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClearToolStripMenuItem, SaveToolStripMenuItem1})
         PassportToolStripMenuItem.Name = "PassportToolStripMenuItem"
-        PassportToolStripMenuItem.Size = New Size(180, 22)
+        PassportToolStripMenuItem.Size = New Size(119, 22)
         PassportToolStripMenuItem.Text = "Passport"
         ' 
         ' ClearToolStripMenuItem
         ' 
         ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
-        ClearToolStripMenuItem.Size = New Size(180, 22)
+        ClearToolStripMenuItem.Size = New Size(101, 22)
         ClearToolStripMenuItem.Text = "Clear"
         ' 
         ' SaveToolStripMenuItem1
         ' 
         SaveToolStripMenuItem1.Name = "SaveToolStripMenuItem1"
-        SaveToolStripMenuItem1.Size = New Size(180, 22)
+        SaveToolStripMenuItem1.Size = New Size(101, 22)
         SaveToolStripMenuItem1.Text = "Save"
         ' 
         ' ExitToolStripMenuItem
         ' 
         ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        ExitToolStripMenuItem.Size = New Size(180, 22)
+        ExitToolStripMenuItem.Size = New Size(107, 22)
         ExitToolStripMenuItem.Text = "Exit"
         ' 
         ' OperationToolStripMenuItem

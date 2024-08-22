@@ -83,6 +83,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="structs\Bank.vb" />
+    <Compile Include="structs\Passport.vb" />
     <Compile Include="structs\Person.vb" />
     <Compile Include="structs\Visa.vb" />
   </ItemGroup>

@@ -126,4 +126,30 @@
 
     End Class
 
+    Public Class PassportHandler : Inherits VisaHandler
+
+        Public Function HandlePNum(value As String) As Boolean
+            If Not MyBase.Handle(value) Then
+                Dim subString As String = value.Substring(2, 6)
+
+                If IsNumeric(subString) Then
+                    Return True
+                End If
+            End If
+            Return False
+        End Function
+
+        Public Overloads Function Handle(value As Char()) As String
+            If value.Length = 3 Then
+                Return value.ToString()
+            End If
+            Return Nothing
+        End Function
+
+        Public Overrides Function Handle(value As String) As Boolean
+            Return MyBase.Handle(value)
+        End Function
+
+    End Class
+
 End Module

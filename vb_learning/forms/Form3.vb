@@ -36,10 +36,6 @@ Public Class Form3
 
     End Sub
 
-    Private Sub Form3_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-
-    End Sub
-
     Private Sub ClearToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem1.Click
 
         For Each item In groupGeneral.Controls()
@@ -67,6 +63,56 @@ Public Class Form3
                 txtAuthority.ResetText()
             End If
         Next
+
+    End Sub
+
+    Private Sub btnSaveState_Click(sender As Object, e As EventArgs) Handles btnSaveState.Click
+        SaveToolStripMenuItem_Click(sender, e)
+        SaveToolStripMenuItem1_Click(sender, e)
+
+    End Sub
+
+    Private Sub ClearAllMenuItem1_Click(sender As Object, e As EventArgs) Handles ClearAllMenuItem1.Click
+        ClearToolStripMenuItem1_Click(sender, e)
+        ClearToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+        Dim sex As Char
+
+        If radioFemale.Checked Then
+            sex = "F"
+        ElseIf radioMale.Checked Then
+            sex = "M"
+        Else
+            sex = Nothing
+        End If
+
+        Dim personObj As New Person With {
+            .FirstName = txtFirstName.Text,
+            .LastName = txtLastName.Text,
+            .DateOfBirth = dateDateOfBirth.Value,
+            .Sex = sex,
+            .Occupation = comboOccupation.SelectedItem
+        }
+
+        MsgBox("Created object person: " & personObj.ToString())
+
+    End Sub
+
+    Private Sub SaveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem1.Click
+
+        Dim passportObj As New Passport With {
+            .Nationality = comboNationality.SelectedItem,
+            .CountryCode = txtCountryCode.Text,
+            .PassportNumber = txtPassportNo.Text,
+            .DateIssue = dateDateOfIssue.Value,
+            .DateExpiry = dateDateOfExpiry.Value,
+            .Type = "P",
+            .Authorizer = txtAuthority.Text
+        }
+
+        MsgBox("Created passport object: " & passportObj.ToString())
 
     End Sub
 End Class
