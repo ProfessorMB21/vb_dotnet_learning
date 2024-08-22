@@ -1,4 +1,6 @@
-﻿Imports System.Numerics
+﻿Imports System.ComponentModel
+Imports System.Numerics
+Imports System.Security.Cryptography.X509Certificates
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar
 Imports FileIOHandler
 Imports FileIOHandler.DataHandler
@@ -7,6 +9,8 @@ Imports ObjectHandler
 Public Class Form3
     Dim fileReader As FileIO.Stream
     Dim fileWriter As FileIO.Stream
+    Dim passportObj As Passport
+    Dim personObj As Person
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Close()
@@ -78,41 +82,137 @@ Public Class Form3
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
-        Dim sex As Char
-
-        If radioFemale.Checked Then
-            sex = "F"
-        ElseIf radioMale.Checked Then
-            sex = "M"
-        Else
-            sex = Nothing
+        Dim personObj As Person
+        If Not bwPersonCreator.IsBusy() Then
+            bwPersonCreator.RunWorkerAsync(personObj)
+            Threading.Thread.Sleep(250)
+            Me.Refresh()
         End If
 
-        Dim personObj As New Person With {
-            .FirstName = txtFirstName.Text,
-            .LastName = txtLastName.Text,
-            .DateOfBirth = dateDateOfBirth.Value,
-            .Sex = sex,
-            .Occupation = comboOccupation.SelectedItem
-        }
-
-        MsgBox("Created object person: " & personObj.ToString())
+        If Not IsNothing(personObj) Then
+            MsgBox("Created object person: " & personObj.ToString())
+        End If
 
     End Sub
 
     Private Sub SaveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem1.Click
+        Dim passportObj As Passport
 
-        Dim passportObj As New Passport With {
-            .Nationality = comboNationality.SelectedItem,
-            .CountryCode = txtCountryCode.Text,
-            .PassportNumber = txtPassportNo.Text,
-            .DateIssue = dateDateOfIssue.Value,
-            .DateExpiry = dateDateOfExpiry.Value,
-            .Type = "P",
-            .Authorizer = txtAuthority.Text
-        }
+        If Not bwPassportCreator.IsBusy() Then
+            bwPassportCreator.RunWorkerAsync(passportObj)
+            Threading.Thread.Sleep(250)
+            Me.Refresh()
+        End If
 
-        MsgBox("Created passport object: " & passportObj.ToString())
+        If Not IsNothing(passportObj) Then
+            MsgBox("Created passport object: " & passportObj.ToString())
+        End If
 
     End Sub
+
+    Private Sub bwPersonCreator_DoWork(sender As Object, e As DoWorkEventArgs) Handles bwPersonCreator.DoWork
+        Dim sex(1) As Boolean
+        Dim cGender As Char
+        Dim firstName As String
+        Dim lastName As String
+        Dim dDob As Date
+        Dim occupation As String
+
+
+        Invoke(radioFemale, Sub()
+                                sex(0) = radioFemale.Checked
+                            End Sub)
+        Invoke(radioMale, Sub()
+                              sex(1) = radioMale.Checked
+                          End Sub)
+        Invoke(txtFirstName, Sub()
+                                 firstName = txtFirstName.Text
+                             End Sub)
+        Invoke(txtLastName, Sub()
+                                lastName = txtLastName.Text
+                            End Sub)
+        Invoke(dateDateOfBirth, Sub()
+                                    dDob = dateDateOfBirth.Value
+                                End Sub)
+        Invoke(comboOccupation, Sub()
+                                    occupation = comboOccupation.SelectedItem.ToString()
+                                End Sub)
+
+        Dim checkedFlag As Boolean = False
+        Dim i As Integer
+        Do While i < sex.Length
+            If sex(i) = True Then
+                Exit Do
+            End If
+        Loop
+
+        Select Case i
+            Case Is = 0
+                cGender = "F"
+            Case Is = 1
+                cGender = "M"
+        End Select
+
+        personObj = New Person With {
+            .FirstName = firstName,
+            .LastName = lastName,
+            .DateOfBirth = dDob,
+            .Sex = cGender,
+            .Occupation = occupation
+        }
+
+    End Sub
+
+    Private Sub bwPassportCreator_DoWork(sender As Object, e As DoWorkEventArgs) Handles bwPassportCreator.DoWork
+        Dim sNationality As String = ""
+        Dim sCode As String = ""
+        Dim sPNumber As String = ""
+        Dim dIssue As Date
+        Dim dExpiry As Date
+        Dim sAuthority As String = ""
+
+        Invoke(comboNationality, Sub()
+                                     sNationality = comboNationality.SelectedItem.ToString()
+                                 End Sub)
+
+        Invoke(txtCountryCode, Sub()
+                                   sCode = txtCountryCode.Text
+                               End Sub)
+
+        Invoke(txtPassportNo, Sub()
+                                  sPNumber = txtPassportNo.Text
+                              End Sub)
+
+        Invoke(txtAuthority, Sub()
+                                 sAuthority = txtAuthority.Text
+                             End Sub)
+
+        Invoke(dateDateOfIssue, Sub()
+                                    dIssue = dateDateOfIssue.Value
+                                End Sub)
+
+        Invoke(dateDateOfExpiry, Sub()
+                                     dExpiry = dateDateOfExpiry.Value
+                                 End Sub)
+
+        passportObj = New Passport With {
+           .Nationality = sNationality,
+           .CountryCode = sCode,
+           .PassportNumber = sPNumber,
+           .DateIssue = dIssue,
+           .DateExpiry = dExpiry,
+           .Type = "P",
+           .Authorizer = sAuthority
+        }
+
+    End Sub
+
+    Public Overloads Sub Invoke(ByVal control As Control, ByVal action As Action)
+        If control.InvokeRequired Then
+            control.Invoke(New MethodInvoker(Sub() action()), Nothing)
+        Else
+            action.Invoke()
+        End If
+    End Sub
+
 End Class

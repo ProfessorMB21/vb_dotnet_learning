@@ -66,6 +66,8 @@ Partial Class Form3
         SubmitToolStripMenuItem = New ToolStripMenuItem()
         ToolsToolStripMenuItem = New ToolStripMenuItem()
         SettingsToolStripMenuItem = New ToolStripMenuItem()
+        bwPersonCreator = New ComponentModel.BackgroundWorker()
+        bwPassportCreator = New ComponentModel.BackgroundWorker()
         GroupBox1.SuspendLayout()
         groupGeneral.SuspendLayout()
         groupPassport.SuspendLayout()
@@ -483,6 +485,12 @@ Partial Class Form3
         SettingsToolStripMenuItem.Size = New Size(116, 22)
         SettingsToolStripMenuItem.Text = "Settings"
         ' 
+        ' bwPersonCreator
+        ' 
+        ' 
+        ' bwPassportCreator
+        ' 
+        ' 
         ' Form3
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -555,4 +563,6 @@ Partial Class Form3
     Friend WithEvents ClearAllMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents bwPersonCreator As System.ComponentModel.BackgroundWorker
+    Friend WithEvents bwPassportCreator As System.ComponentModel.BackgroundWorker
 End Class
